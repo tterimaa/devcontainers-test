@@ -15,10 +15,21 @@ const kittySchema = new mongoose.Schema({
     name: String
 });
 
+const doggySchema = new mongoose.Schema({
+  name: String
+})
+
 const Kitten = mongoose.model('Kitten', kittySchema);
+const Doggy = mongoose.model('Doggy', doggySchema);
 
 const silence = new Kitten({ name: 'Silence' });
 silence.save((err, silence) => {
     if (err) return console.error(err);
     console.log(`Kitten ${silence} successfully saved`);
+});
+
+const hauva = new Doggy({ name: "Hauva "});
+hauva.save((err, hauva) => {
+  if (err) return console.error(err);
+  console.log(`Doggy ${hauva} successfully saved`);
 });
